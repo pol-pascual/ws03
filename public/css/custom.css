@@ -176,6 +176,16 @@ footer,
   color: #FFFFFF !important;
 }
 
+a.btn-primary-action {
+    background-color: var(--color-header) !important;
+    color: #FFFFFF !important; /* Force text to white */
+    display: block !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 8px !important;
+}
+
 
 /* ----------------------------------------------------------------
    ADVANCED ZONE — Para sa gustong mag-explore pa!
