@@ -1,10 +1,12 @@
 <?php
 
+namespace Framework;
+
 class Router
 {
     protected $routes = [];
 
-    public function registerRoute($method, $uri, $controller) 
+    public function registerRoute($method, $uri, $controller)
     {
         $this->routes[] = [
             'method' => $method,
@@ -19,7 +21,7 @@ class Router
      * @param string $uri
      * @param string $controller
      */
-    
+
     public function get($uri, $controller)
     {
         $this->registerRoute('GET', $uri, $controller);
@@ -95,5 +97,4 @@ class Router
         }
         $this->error();
     }
-    
 }

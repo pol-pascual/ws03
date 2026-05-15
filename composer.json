@@ -1,0 +1,16 @@
+{
+    "name": "pol-pascual/ws03",
+    "description": "PHP workshop project — NEUST CICT",
+    "authors": [
+        {
+            "name": "Pol Pascual",
+            "email": "polclarence20@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}

@@ -1,6 +1,11 @@
 <?php
 
-class Database {
+namespace Framework;
+
+use PDO;
+
+class Database
+{
     public $conn;
 
     public function __construct($config)
@@ -16,14 +21,15 @@ class Database {
         }
     }
 
-    public function query($query, $params = []) {
+    public function query($query, $params = [])
+    {
         try {
             $sth = $this->conn->prepare($query);
 
             //bind named params
-            foreach($params as $param => $value) {
+            foreach ($params as $param => $value) {
                 $sth->bindValue(':' . $param, $value);
-            } 
+            }
 
             $sth->execute();
             return $sth;
