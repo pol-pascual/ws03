@@ -189,6 +189,13 @@ a.btn-primary-action {
   color: white !important;
 }
 
+.black-link {
+  color: black !important;
+  background-color: #388E3C;
+  border-radius: 12px;
+  padding: 10px;
+}
+
 
 /* ----------------------------------------------------------------
    ADVANCED ZONE — Para sa gustong mag-explore pa!
