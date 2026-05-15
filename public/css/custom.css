@@ -25,16 +25,16 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header:       #455A64;   /* Header at navigation bar */
-  --color-accent:       #607D8B;   /* "Post a Job" button at mga highlight */
-  --color-page-bg:      #FFFFFF;   /* Background ng buong page */
-  --color-card-bg:      #BDBDBD;   /* Background ng mga card/box */
-  --color-heading:      #FFFFFF;   /* Kulay ng mga title at heading */
+  --color-header:       #388E3C;   /* Header at navigation bar */
+  --color-accent:       #8BC34A;   /* "Post a Job" button at mga highlight */
+  --color-page-bg:      #C8E6C9;   /* Background ng buong page */
+  --color-card-bg:      #4CAF50;   /* Background ng mga card/box */
+  --color-heading:      #000000;   /* Kulay ng mga title at heading */
   --color-body-text:    #000000;   /* Regular na body text */
   --color-link:         #FFFFFF;   /* Mga clickable na links */
   --color-tag-bg:       #FFFFFF;   /* Background ng mga tag/badge */
   --color-tag-text:     #000000;   /* Text ng mga tag/badge */
-  --color-footer:       #000000;   /* Footer background */
+  --color-footer:       #FFFFF;   /* Footer background */
   --showcase-overlay:   rgba(0, 0, 0, 0.5); /* Hero banner overlay
                                                0.0 = transparent
                                                0.9 = halos itim */
@@ -177,8 +177,7 @@ footer,
 }
 
 a.btn-primary-action {
-    background-color: var(--color-header) !important;
-    color: #FFFFFF !important; /* Force text to white */
+    color: #000000 !important; 
     display: block !important;
     width: fit-content !important;
     margin-left: auto !important;
