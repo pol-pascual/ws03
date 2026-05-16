@@ -190,10 +190,13 @@ a.btn-primary-action {
 }
 
 .black-link {
-  color: black !important;
   background-color: #388E3C;
   border-radius: 12px;
   padding: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 45%;
 }
 
 

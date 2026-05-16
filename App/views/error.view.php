@@ -8,6 +8,6 @@
         <p class="text-center text-2xl mb-4">
             <?= $message ?>
         </p>
-        <a class="black-link block text-center" href="/listings">Go Back to Listings</a>
+        <a class="black-link" href="/listings">Go Back to Listings</a>
     </div>
 </section>

@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4 py-6">
         <div class="flex justify-between items-center">
             <div>
-                <h3 class="text-xl font-bold">Jobseek</h3>
+                <h3 class="find-color text-xl font-bold">Jobseek</h3>
                 <p class="text-gray-200 text-xs mt-2">Find your dream job today.</p>
             </div>
             <div class="flex space-x-4 text-xs text-gray-200">
