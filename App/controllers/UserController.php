@@ -45,7 +45,8 @@ class UserController
      * 
      * @return void
      */
-    public function store() {
+    public function store()
+    {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $city = $_POST['city'];
@@ -55,23 +56,23 @@ class UserController
 
         $errors = [];
 
-        if(!Validation::email($email)) {
+        if (!Validation::email($email)) {
             $errors['$email'] = 'Please enter a valid email address';
         }
 
-        if(!Validation::string($name, 2, 50)) {
+        if (!Validation::string($name, 2, 50)) {
             $errors['$name'] = 'Name must be 2-50 characters';
         }
 
-        if(!Validation::string($password, 6, 50)) {
+        if (!Validation::string($password, 6, 50)) {
             $errors['$password'] = 'Password be at least 6 characters';
         }
 
-        if(!Validation::match($password, $passwordConfirmation)) {
+        if (!Validation::match($password, $passwordConfirmation)) {
             $errors['$passwordConfirmation'] = 'Password Mismatch';
         }
 
-        if(!empty($errors)) {
+        if (!empty($errors)) {
             loadView('users/create', [
                 'errors' => $errors,
                 'user' => [
@@ -82,14 +83,14 @@ class UserController
                 ]
             ]);
             exit;
-        } 
+        }
 
         $params = [
             'email' => $email
         ];
         $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
-        if($user) {
+        if ($user) {
             $errors['email'] = 'Email Already In Used';
             loadView('users/create', [
                 'errors' => $errors
@@ -125,7 +126,8 @@ class UserController
      * 
      * @return void
      */
-    public function logout() {
+    public function logout()
+    {
         Session::clearAll('user');
         $params = session_get_cookie_params();
         setcookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
@@ -139,9 +141,27 @@ class UserController
      * @return void
      * 
      */
-    public function authenticate() {
+    public function authenticate()
+    {
         $email = $_POST['email'];
         $password = $_POST['password'];
+
+        $errors = [];
+
+        if (!Validation::email($email)) {
+            $errors['email'] = 'Please Enter a Valid Email';
+        }
+
+        if (!Validation::string($password, 6, 50)) {
+            $errors['password'] = 'Please Enter a Valid Password';
+        }
+
+        if (!empty($errors)) {
+            loadView('users/login', [
+                'errors' => $errors
+            ]);
+            exit;
+        }
 
         $params = [
             'email' => $email
@@ -149,15 +169,24 @@ class UserController
 
         $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
-        if(!$user || !password_verify($password, $user->password)) {
+        if (!$user) {
+            $errors['email'] = 'Incorrect Credentials';
             loadView('users/login', [
-                'error' => 'Invalid email or password'
+                'errors' => $errors
+            ]);
+            exit;
+        }
+
+        if (!password_verify($password, $user->password)) {
+            $errors['email'] = 'Incorrect Credentials';
+            loadView('users/login', [
+                'errors' => $errors
             ]);
             exit;
         }
 
         Session::set('user', [
-            'id' => $user->id,
+            'id' => $user->Id,
             'name' => $user->name,
             'email' => $user->email,
             'city' => $user->city,

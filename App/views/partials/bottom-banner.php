@@ -14,7 +14,7 @@ use Framework\Session;
         Post your job listing now and find the perfect candidate.
       </p>
     </div>
-    <?php if(Session::has('user_id')): ?>
+    <?php if(Session::has('user')): ?>
     <a
       href="/listings/create"
       class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300">
